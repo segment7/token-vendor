@@ -2,9 +2,10 @@ pragma solidity 0.8.20; //Do not change the solidity version as it negatively im
 // SPDX-License-Identifier: MIT
 
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "./YourToken.sol";
 
-contract Vendor is Ownable{
+contract Vendor is Ownable, ReentrancyGuard{
     event BuyTokens(address buyer, uint256 amountOfETH, uint256 amountOfTokens);
     event SellTokens(address seller, uint256 amountOfETH, uint256 amountOfTokens);
 
@@ -26,7 +27,13 @@ contract Vendor is Ownable{
         emit BuyTokens(msg.sender, ethInput, tokensBought);
     }
 
-    // ToDo: create a withdraw() function that lets the owner withdraw ETH
-    // function withdraw
+    // ToDo: create a withdraw() function that lets the owner withdraw  ALL ETH
+    function withdraw() external  onlyOwner  nonReentrant(){
+        uint256 balance = address(this).balance;
+        require(balance >0, "No eth to withdraw");
+        (bool sent, ) = owner().call{value: balance}("");
+        require(sent, "Withdrawal failed");
+    }
+
     // ToDo: create a sellTokens(uint256 _amount) function:
 }
