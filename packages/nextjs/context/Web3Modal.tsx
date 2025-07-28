@@ -25,12 +25,17 @@ export const modal = createAppKit({
   metadata,
   themeMode: 'light',
   features: {
-    analytics: true // Optional - defaults to your Cloud configuration
+    analytics: true // Optional
   },
   themeVariables: {
     '--w3m-accent': '#2563eb', // Using Scaffold-ETH blue color
   }
 })
+
+// Expose modal to global scope for programmatic access
+if (typeof window !== 'undefined') {
+  (window as any).modal = modal;
+}
 
 function ReownContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
@@ -39,10 +44,6 @@ function ReownContextProvider({ children, cookies }: { children: ReactNode; cook
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>
         {children}
-        {/* Hidden appkit-button for programmatic access */}
-        <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}>
-          <appkit-button />
-        </div>
       </QueryClientProvider>
     </WagmiProvider>
   )

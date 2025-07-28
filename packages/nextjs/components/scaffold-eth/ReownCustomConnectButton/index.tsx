@@ -24,24 +24,38 @@ export const ReownCustomConnectButton = () => {
 
   // Open Reown modal function
   const openConnectModal = () => {
+    console.log('Opening Reown modal...');
+    
     // Try to access the global modal
     if (typeof window !== 'undefined') {
-      // Check for appkit-button or modal in global scope
+      console.log('Window available, checking for modal...');
+      
+      // First try: access modal directly from global scope
+      if ((window as any).modal && (window as any).modal.open) {
+        console.log('Found modal in global scope, opening...');
+        (window as any).modal.open();
+        return;
+      }
+      
+      // Second try: trigger click on hidden appkit button
       const appkitButton = document.querySelector('appkit-button');
       if (appkitButton) {
-        // Trigger click on hidden appkit button
+        console.log('Found appkit-button, triggering click...');
         (appkitButton as any).click();
         return;
       }
       
-      // Fallback: try to access modal directly
-      if ((window as any).modal && (window as any).modal.open) {
-        (window as any).modal.open();
+      // Third try: use wagmi connect with first available connector
+      const connector = connectors[0];
+      if (connector) {
+        console.log('Using wagmi connector:', connector.name);
+        connect({ connector });
         return;
       }
     }
     
-    // Final fallback to first available connector
+    // Fallback: show error or use default behavior
+    console.warn('Reown modal not found, falling back to default connector');
     const connector = connectors[0];
     if (connector) {
       connect({ connector });

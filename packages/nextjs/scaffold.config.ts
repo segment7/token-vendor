@@ -33,7 +33,7 @@ const scaffoldConfig = {
   // You can get your own at https://cloud.walletconnect.com
   // It's recommended to store it in an env variable:
   // .env.local for local testing, and in the Vercel/system env config for live apps.
-  walletConnectProjectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "38c77ce160a89a04dc4de0327bfffeb1",
+  walletConnectProjectId: process.env.NEXT_PUBLIC_PROJECT_ID || "38c77ce160a89a04dc4de0327bfffeb1",
   onlyLocalBurnerWallet: true,
 } as const satisfies ScaffoldConfig;
 
