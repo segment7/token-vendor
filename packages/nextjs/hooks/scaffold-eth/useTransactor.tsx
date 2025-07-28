@@ -2,7 +2,7 @@ import { Hash, SendTransactionParameters, TransactionReceipt, WalletClient } fro
 import { Config, useWalletClient } from "wagmi";
 import { getPublicClient } from "wagmi/actions";
 import { SendTransactionMutate } from "wagmi/query";
-import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+import { wagmiConfig } from "~~/services/web3/rainbowkit/wagmiConfig";
 import { getBlockExplorerTxLink, getParsedError, notification } from "~~/utils/scaffold-eth";
 import { TransactorFuncOptions } from "~~/utils/scaffold-eth/contract";
 

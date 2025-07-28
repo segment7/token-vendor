@@ -20,8 +20,17 @@ const Home: NextPage = () => {
             <span className="block text-xl font-bold">(SpeedRunEthereum Challenge #2 extension)</span>
           </h1>
           <div className="flex justify-center items-center space-x-2 flex-col">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
+            {connectedAddress ? (
+              <>
+                <p className="my-2 font-medium">Connected Address:</p>
+                <Address address={connectedAddress} />
+              </>
+            ) : (
+              <>
+                <p className="my-2 font-medium">Connect your wallet to get started:</p>
+                <appkit-button />
+              </>
+            )}
           </div>
 
           <div className="flex items-center flex-col flex-grow pt-10">

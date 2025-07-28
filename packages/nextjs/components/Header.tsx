@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { BoltIcon, CircleStackIcon } from "@heroicons/react/24/outline";
-import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
+import { FaucetButton, ReownCustomConnectButton } from "~~/components/scaffold-eth";
+// import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth"; // Original import commented for Reown migration
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
 type HeaderMenuLink = {
@@ -106,7 +107,8 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end grow mr-4">
-        <RainbowKitCustomConnectButton />
+        <ReownCustomConnectButton />
+        {/* <RainbowKitCustomConnectButton /> */}
         {isLocalNetwork && <FaucetButton />}
       </div>
     </div>

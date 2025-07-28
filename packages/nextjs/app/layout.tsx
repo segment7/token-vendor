@@ -1,9 +1,11 @@
 import { Space_Grotesk } from "next/font/google";
-import "@rainbow-me/rainbowkit/styles.css";
+// import "@rainbow-me/rainbowkit/styles.css"; // Commented out for Reown migration
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
 import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
+import { headers } from "next/headers"; // Added for Reown SSR support
+import ReownContextProvider from "~~/services/web3/Web3Modal"; // Added for Reown
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -15,12 +17,17 @@ export const metadata = getMetadata({
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 
-const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
+const ScaffoldEthApp = async ({ children }: { children: React.ReactNode }) => {
+  const headersData = await headers();
+  const cookies = headersData.get('cookie');
+
   return (
     <html suppressHydrationWarning className={`${spaceGrotesk.variable} font-space-grotesk`}>
       <body>
         <ThemeProvider enableSystem>
+          <ReownContextProvider cookies={cookies}>
           <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
+          </ReownContextProvider>
         </ThemeProvider>
       </body>
     </html>
