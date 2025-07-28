@@ -12,7 +12,7 @@ import { Header } from "~~/components/Header";
 // import { BlockieAvatar } from "~~/components/scaffold-eth"; // Commented out for Reown migration
 import { useInitializeNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 // import { wagmiConfig } from "~~/services/web3/wagmiConfig"; // Commented out for Reown migration
-import { wagmiAdapter } from "~~/config/wagmi"; // Using Reown wagmi adapter
+import { wagmiAdapter } from "~~/services/web3/wagmi"; // Using Reown wagmi adapter
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   useInitializeNativeCurrencyPrice();

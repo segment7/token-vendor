@@ -5,7 +5,7 @@ import { ThemeProvider } from "~~/components/ThemeProvider";
 import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 import { headers } from "next/headers"; // Added for Reown SSR support
-import ReownContextProvider from "~~/context/Web3Modal"; // Added for Reown
+import ReownContextProvider from "~~/services/web3/Web3Modal"; // Added for Reown
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],

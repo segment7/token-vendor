@@ -38,4 +38,4 @@
 // });
 
 // Using Reown wagmi config instead
-export { config as wagmiConfig } from "~~/config/wagmi";
+export { config as wagmiConfig } from "~~/services/web3/wagmi";
