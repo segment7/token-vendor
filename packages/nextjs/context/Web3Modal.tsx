@@ -28,7 +28,7 @@ export const modal = createAppKit({
     analytics: true // Optional
   },
   themeVariables: {
-    '--w3m-accent': '#2563eb', // Using Scaffold-ETH blue color
+    '--w3m-accent': '#fc8d0d', // Using a nice orange color
   }
 })
 
