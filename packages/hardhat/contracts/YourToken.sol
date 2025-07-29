@@ -9,7 +9,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract YourToken is ERC20 {
 
     constructor() ERC20("Group9", "G9") {
-        //_mint( ~~~YOUR FRONTEND ADDRESS HERE~~~~ , 1000 * 10 ** 18);
         address initialTokenOwner = msg.sender;
         _mint(initialTokenOwner, 1000* (10**18)); // 1000 tokens, msg sender aka minter will be initial Owner of all tokens
     }

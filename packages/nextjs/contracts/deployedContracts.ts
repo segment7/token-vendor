@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     Vendor: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
       abi: [
         {
           inputs: [
@@ -40,6 +40,11 @@ const deployedContracts = {
             },
           ],
           name: "OwnableUnauthorizedAccount",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "ReentrancyGuardReentrantCall",
           type: "error",
         },
         {
@@ -139,6 +144,19 @@ const deployedContracts = {
           type: "function",
         },
         {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "tokenInput",
+              type: "uint256",
+            },
+          ],
+          name: "sellTokens",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
           inputs: [],
           name: "tokensPerEth",
           outputs: [
@@ -166,6 +184,13 @@ const deployedContracts = {
         },
         {
           inputs: [],
+          name: "withdraw",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
           name: "yourToken",
           outputs: [
             {
@@ -185,7 +210,7 @@ const deployedContracts = {
       },
     },
     YourToken: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
       abi: [
         {
           inputs: [],
