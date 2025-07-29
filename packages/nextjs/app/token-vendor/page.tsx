@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
-import { AddressInput, IntegerInput } from "~~/components/scaffold-eth";
+import { Address, AddressInput, IntegerInput } from "~~/components/scaffold-eth";
 import { useDeployedContractInfo, useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { useWatchBalance } from "~~/hooks/scaffold-eth/useWatchBalance";
 import { getTokenPrice, multiplyTo1e18 } from "~~/utils/scaffold-eth/priceInWei";
@@ -44,11 +44,26 @@ const TokenVendor: NextPage = () => {
     contractName: "Vendor",
     functionName: "tokensPerEth",
   });
+  const { address: connectedAddress } = useAccount();
 
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="flex flex-col items-center bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-24 w-full max-w-lg">
+          <div className="flex justify-center items-center space-x-2 flex-col">
+            {connectedAddress ? (
+              <>
+                <p className="my-2 font-medium">Connected Address:</p>
+                <Address address={connectedAddress} />
+              </>
+            ) : (
+              <>
+                <p className="my-2 font-medium">Connect your wallet to get started:</p>
+                <appkit-button />
+              </>
+            )}
+          </div>
+          <br/>
           <div className="text-xl">
             Your token balance:{" "}
             <div className="inline-flex items-center justify-center">
