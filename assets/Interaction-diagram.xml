@@ -1,0 +1,125 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" version="28.0.7">
+  <diagram id="KyQwZ18WUwNBpbvozy32" name="Page-1">
+    <mxGraphModel dx="1002" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TokenG9" value="Token.sol (ERC20)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="50" y="130" width="200" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="TokenG9-f1" value="+ constructor()" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=1;" parent="TokenG9" vertex="1">
+          <mxGeometry y="30" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TokenG9-f2" value="+ transfer(to, amount)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="TokenG9" vertex="1">
+          <mxGeometry y="60" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TokenG9-f3" value="+ transferFrom(from, to, amount)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="TokenG9" vertex="1">
+          <mxGeometry y="90" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TokenG9-f4" value="+ approve(spender, amount)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="TokenG9" vertex="1">
+          <mxGeometry y="120" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TokenG9-f5" value="+ balanceOf(account)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="TokenG9" vertex="1">
+          <mxGeometry y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TokenG9-f6" value="+ totalSupply()" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="TokenG9" vertex="1">
+          <mxGeometry y="180" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor" value="Vendor.sol (Ownable, ReentrancyGuard)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="410" y="130" width="260" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f1" value="+ tokenG9: Token" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="Vendor" vertex="1">
+          <mxGeometry y="30" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f2" value="+ tokensPerEth: uint (100)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="Vendor" vertex="1">
+          <mxGeometry y="60" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f3" value="+ selltokensPerEth: uint (125)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="Vendor" vertex="1">
+          <mxGeometry y="90" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f4" value="+ constructor(tokenAddress)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=1;" parent="Vendor" vertex="1">
+          <mxGeometry y="120" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f5" value="+ buyTokens() payable" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="Vendor" vertex="1">
+          <mxGeometry y="150" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f6" value="+ sellTokens(amount)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="Vendor" vertex="1">
+          <mxGeometry y="180" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f7" value="+ withdraw()" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=0;" parent="Vendor" vertex="1">
+          <mxGeometry y="210" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f8" value="~ BuyTokens(buyer, ethAmount, tokenAmount)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=2;" parent="Vendor" vertex="1">
+          <mxGeometry y="240" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Vendor-f9" value="~ SellTokens(seller, ethAmount, tokenAmount)" style="text;align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontStyle=2;" parent="Vendor" vertex="1">
+          <mxGeometry y="270" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="interact1" value="1. transfer()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;comic=0;html=0;entryX=0.75;entryY=1;endArrow=block;endFill=1;strokeWidth=2;dashed=1;entryDx=0;entryDy=0;" parent="1" target="TokenG9-f6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="130" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="540" y="100" />
+              <mxPoint x="290" y="100" />
+              <mxPoint x="290" y="370" />
+              <mxPoint x="200" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="interact2" value="2. transferFrom()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;comic=0;html=0;exitX=0.25;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=1;strokeWidth=2;dashed=1;exitDx=0;exitDy=0;" parent="1" source="Vendor" target="TokenG9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="475" y="120" />
+              <mxPoint x="350" y="120" />
+              <mxPoint x="350" y="410" />
+              <mxPoint x="150" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=halfCircle;endFill=0;" edge="1" parent="1" source="FYLxujP4KDEser63sXyW-1" target="TokenG9-f2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="30" y="70" />
+              <mxPoint x="30" y="205" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=halfCircle;endFill=0;" edge="1" parent="1" source="FYLxujP4KDEser63sXyW-1" target="TokenG9-f4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10" y="39.99999999999994" />
+              <mxPoint x="10" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=halfCircle;endFill=0;" edge="1" parent="1" source="FYLxujP4KDEser63sXyW-1" target="Vendor-f5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="60" />
+              <mxPoint x="680" y="60" />
+              <mxPoint x="680" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;endArrow=halfCircle;endFill=0;" edge="1" parent="1" source="FYLxujP4KDEser63sXyW-1" target="Vendor-f6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="70" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="710" y="30" />
+              <mxPoint x="710" y="325" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-1" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-8" value="Gets token, pays Vendor ETH" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="250" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FYLxujP4KDEser63sXyW-11" value="Sells token, gets ETH from Vendor" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="235" y="30" width="210" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
