@@ -65,7 +65,7 @@ Built and deployed using [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffo
 
 ## ✍️ Author
 
-Created and customized by Group 9
+Created and customized by Group 9  
 Built with 💙 for the EVM Bootcamp
 
 ---
