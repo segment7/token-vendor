@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { PresentationChartLineIcon, TrendingUpIcon, TrendingDownIcon } from "@heroicons/react/24/outline";
+import { PresentationChartLineIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from "@heroicons/react/24/outline";
 
 interface ChartDataPoint {
   index: number;
@@ -57,9 +57,9 @@ export const PortfolioChart = ({ data, timeframe, tokenSymbol }: PortfolioChartP
             'bg-base-300 text-base-content'
           }`}>
             {chartMetrics.trend === 'up' ? (
-              <TrendingUpIcon className="h-5 w-5" />
+              <ArrowTrendingUpIcon className="h-5 w-5" />
             ) : chartMetrics.trend === 'down' ? (
-              <TrendingDownIcon className="h-5 w-5" />
+              <ArrowTrendingDownIcon className="h-5 w-5" />
             ) : (
               <PresentationChartLineIcon className="h-5 w-5" />
             )}

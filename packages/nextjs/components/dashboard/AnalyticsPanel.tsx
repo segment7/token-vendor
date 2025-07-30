@@ -6,8 +6,8 @@ import {
   ClockIcon, 
   CurrencyDollarIcon,
   ChartPieIcon,
-  TrendingUpIcon,
-  TrendingDownIcon,
+  ArrowTrendingUpIcon,
+  ArrowTrendingDownIcon,
   ScaleIcon
 } from "@heroicons/react/24/outline";
 
@@ -206,7 +206,7 @@ export const AnalyticsPanel = ({ transactions, currentBalance, tokenSymbol }: An
       {/* Performance Metrics */}
       <div className="action-card border-0 rounded-xl p-6">
         <h4 className="text-lg font-semibold text-gradient mb-4 flex items-center">
-          <TrendingUpIcon className="h-5 w-5 mr-2" />
+          <ArrowTrendingUpIcon className="h-5 w-5 mr-2" />
           Performance Metrics
         </h4>
         
@@ -242,7 +242,7 @@ export const AnalyticsPanel = ({ transactions, currentBalance, tokenSymbol }: An
 
           <div className="glass-effect rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
-              <TrendingUpIcon className="h-5 w-5 text-success" />
+              <ArrowTrendingUpIcon className="h-5 w-5 text-success" />
               <div className="text-xs text-base-content/60">Activity</div>
             </div>
             <div className="text-lg font-bold text-success">{analytics.metrics.activityScore.toFixed(1)}</div>
@@ -260,7 +260,7 @@ export const AnalyticsPanel = ({ transactions, currentBalance, tokenSymbol }: An
 
           <div className="glass-effect rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
-              <TrendingDownIcon className="h-5 w-5 text-accent" />
+              <ArrowTrendingDownIcon className="h-5 w-5 text-accent" />
               <div className="text-xs text-base-content/60">Total</div>
             </div>
             <div className="text-lg font-bold text-accent">{analytics.metrics.totalTransactions}</div>
@@ -281,7 +281,7 @@ export const AnalyticsPanel = ({ transactions, currentBalance, tokenSymbol }: An
             <div className="text-2xl font-bold text-success mb-2">{analytics.values.totalBuyValue.toFixed(4)} ETH</div>
             <div className="text-sm text-base-content/70">Total Invested</div>
             <div className="mt-2 bg-success/10 rounded-full px-3 py-1 inline-block">
-              <TrendingDownIcon className="h-4 w-4 inline mr-1 text-success" />
+              <ArrowTrendingDownIcon className="h-4 w-4 inline mr-1 text-success" />
               <span className="text-success text-xs font-medium">Outflow</span>
             </div>
           </div>
@@ -290,7 +290,7 @@ export const AnalyticsPanel = ({ transactions, currentBalance, tokenSymbol }: An
             <div className="text-2xl font-bold text-warning mb-2">{analytics.values.totalSellValue.toFixed(4)} ETH</div>
             <div className="text-sm text-base-content/70">Total Returned</div>
             <div className="mt-2 bg-warning/10 rounded-full px-3 py-1 inline-block">
-              <TrendingUpIcon className="h-4 w-4 inline mr-1 text-warning" />
+              <ArrowTrendingUpIcon className="h-4 w-4 inline mr-1 text-warning" />
               <span className="text-warning text-xs font-medium">Inflow</span>
             </div>
           </div>
@@ -304,9 +304,9 @@ export const AnalyticsPanel = ({ transactions, currentBalance, tokenSymbol }: An
               analytics.values.netValue >= 0 ? 'bg-success/10' : 'bg-error/10'
             }`}>
               {analytics.values.netValue >= 0 ? (
-                <TrendingUpIcon className="h-4 w-4 inline mr-1 text-success" />
+                <ArrowTrendingUpIcon className="h-4 w-4 inline mr-1 text-success" />
               ) : (
-                <TrendingDownIcon className="h-4 w-4 inline mr-1 text-error" />
+                <ArrowTrendingDownIcon className="h-4 w-4 inline mr-1 text-error" />
               )}
               <span className={`text-xs font-medium ${analytics.values.netValue >= 0 ? 'text-success' : 'text-error'}`}>
                 {analytics.values.netValue >= 0 ? 'Positive' : 'Negative'}

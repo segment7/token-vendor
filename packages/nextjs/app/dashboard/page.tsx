@@ -10,14 +10,14 @@ import { SwitchTheme } from "~~/components/SwitchTheme";
 import { 
   ChartBarIcon, 
   CurrencyDollarIcon, 
-  TrendingUpIcon, 
-  TrendingDownIcon,
   ClockIcon,
   ArrowUpIcon,
   ArrowDownIcon,
   PresentationChartLineIcon,
   EyeIcon,
-  EyeSlashIcon
+  EyeSlashIcon,
+  ArrowTrendingUpIcon,
+  ArrowTrendingDownIcon
 } from "@heroicons/react/24/outline";
 import { PortfolioChart } from "~~/components/dashboard/PortfolioChart";
 import { AnalyticsPanel } from "~~/components/dashboard/AnalyticsPanel";
@@ -286,9 +286,9 @@ const Dashboard: NextPage = () => {
                 <div className="stat-card rounded-xl p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-3">
                     {portfolioMetrics.profitLoss >= 0 ? (
-                      <TrendingUpIcon className="h-8 w-8 text-success" />
+                      <ArrowTrendingUpIcon className="h-8 w-8 text-success" />
                     ) : (
-                      <TrendingDownIcon className="h-8 w-8 text-error" />
+                      <ArrowTrendingDownIcon className="h-8 w-8 text-error" />
                     )}
                     <div className="text-xs text-base-content/60">P&L</div>
                   </div>
