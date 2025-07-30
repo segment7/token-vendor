@@ -1,11 +1,11 @@
 # Token Vendor dApp
 
-An Ethereum-based decentralized application (dApp) that allows users to seamlessly **buy and sell ERC-20 tokens** (`TokenG9`) in exchange for ETH using a vendor smart contract.
+An Ethereum-based decentralized application (dApp) that allows users to seamlessly **buy and sell ERC-20 tokens** (`TokenG9`) in exchange for ETH using a vendor smart contract and a ERC-20 contract.
 
 ---
 
 ## 🌐 Live Demo
-Please visit the live demo at [https://group9-evm.vercel.app/](https://group9-evm.vercel.app/).
+Please visit the live demo at [group9-evm.vercel.app](https://group9-evm.vercel.app/).
 
 ---
 
@@ -33,7 +33,7 @@ Please visit the live demo at [https://group9-evm.vercel.app/](https://group9-ev
 
 ## 🚀 Features
 
-- **Buy tokens** by sending ETH to the `TokenVendor` contract  
+- **Buy tokens** by sending ETH to the `Vendor` contract  
 - **Sell tokens** back to the contract in exchange for ETH  
 - **Real-time balances** for ETH and tokens  
 - **Wallet integration** via Reownkit for seamless Web3 experience  
@@ -61,7 +61,7 @@ yarn deploy
 
 Start the frontend:
 ```bash
-yarn dev
+yarn start
 ```
 
 Access at `http://localhost:3000`
@@ -91,4 +91,4 @@ Built with 💙 for the EVM Bootcamp
 
 ## License
 
-MIT
+AGPL v3
