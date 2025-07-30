@@ -25,18 +25,24 @@ export const SwitchTheme = ({ className }: { className?: string }) => {
   if (!mounted) return null;
 
   return (
-    <div className={`flex space-x-2 h-8 items-center justify-center text-sm ${className}`}>
-      <input
-        id="theme-toggle"
-        type="checkbox"
-        className="toggle bg-secondary toggle-primary hover:bg-accent transition-all"
-        onChange={handleToggle}
-        checked={isDarkMode}
-      />
-      <label htmlFor="theme-toggle" className={`swap swap-rotate ${!isDarkMode ? "swap-active" : ""}`}>
-        <SunIcon className="swap-on h-5 w-5" />
-        <MoonIcon className="swap-off h-5 w-5" />
-      </label>
+    <div className={`flex items-center justify-center ${className}`}>
+      <div className="relative bg-base-200 rounded-full p-1 shadow-lg border border-base-300 hover:shadow-xl transition-all duration-300">
+        <div className="flex items-center space-x-2">
+          <div className={`p-2 rounded-full transition-all duration-300 ${!isDarkMode ? 'bg-warning text-warning-content shadow-md' : 'text-base-content/60 hover:text-base-content'}`}>
+            <SunIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+          </div>
+          <input
+            id="theme-toggle"
+            type="checkbox"
+            className="toggle toggle-sm sm:toggle-md bg-base-300 border-base-content/20 hover:bg-accent checked:bg-primary checked:border-primary transition-all duration-300"
+            onChange={handleToggle}
+            checked={isDarkMode}
+          />
+          <div className={`p-2 rounded-full transition-all duration-300 ${isDarkMode ? 'bg-info text-info-content shadow-md' : 'text-base-content/60 hover:text-base-content'}`}>
+            <MoonIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

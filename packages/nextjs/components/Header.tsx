@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
-import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BugAntIcon, ChartBarIcon } from "@heroicons/react/24/outline";
 import { BoltIcon, CircleStackIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, ReownCustomConnectButton } from "~~/components/scaffold-eth";
 // import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth"; // Original import commented for Reown migration
@@ -26,6 +26,11 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "Token Vendor",
     href: "/token-vendor",
     icon: <CircleStackIcon className="h-4 w-4" />,
+  },
+  {
+    label: "Dashboard",
+    href: "/dashboard",
+    icon: <ChartBarIcon className="h-4 w-4" />,
   },
   {
     label: "Events",

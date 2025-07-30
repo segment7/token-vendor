@@ -6,7 +6,13 @@
 
 @theme {
   --shadow-center: 0 0 12px -2px rgb(0 0 0 / 0.05);
+  --shadow-glow: 0 0 20px -2px rgb(0 0 0 / 0.1);
+  --shadow-ethereal: 0 8px 32px -8px rgb(0 0 0 / 0.1);
   --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-slide-in: slide-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
 }
 
 @plugin "daisyui" {
@@ -182,4 +188,155 @@
 
 @theme inline {
   --font-space-grotesk: var(--font-space-grotesk);
+}
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px currentColor;
+  }
+  to {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+/* Enhanced Component Styles */
+.card-gradient {
+  background: linear-gradient(135deg, var(--color-base-100) 0%, var(--color-base-200) 100%);
+  border: 1px solid var(--color-base-300);
+}
+
+.card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, var(--color-primary)/5% 50%, transparent 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, var(--color-primary)/10% 0%, var(--color-secondary)/10% 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-primary)/20%;
+}
+
+.action-card {
+  background: linear-gradient(135deg, var(--color-base-100) 0%, var(--color-base-200) 100%);
+  box-shadow: var(--shadow-ethereal);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-modern {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  border: none;
+  color: var(--color-secondary-content);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+.btn-modern:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--color-info)/10% 0%, var(--color-success)/10% 100%);
+  border: 1px solid var(--color-info)/20%;
+  backdrop-filter: blur(5px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Progress Bar */
+.progress-modern {
+  background: var(--color-base-300);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-modern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--value, 0%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border-radius: inherit;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
