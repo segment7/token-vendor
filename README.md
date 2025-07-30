@@ -50,6 +50,10 @@ yarn deploy
 # Start frontend
 yarn dev
 
+```
+
+---
+
 ## 📄 Contracts
 
 - `MyToken.sol` – Custom ERC-20 token
@@ -57,10 +61,14 @@ yarn dev
 
 Built and deployed using [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) template.
 
+---
+
 ## ✍️ Author
 
 Created and customized by Group 9
 Built with 💙 for the EVM Bootcamp
+
+---
 
 ## License
 MIT
