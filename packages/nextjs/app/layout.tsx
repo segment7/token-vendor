@@ -13,7 +13,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = getMetadata({
-  title: "Challenge #2 | SpeedRunEthereum",
+  title: "Token Vendor | Group 9",
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 

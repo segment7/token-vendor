@@ -24,3 +24,9 @@ dist
 
 # docs
 .doc/
+
+# env
+.env
+.env.*
+packages/*/.env
+packages/*/.env.*
