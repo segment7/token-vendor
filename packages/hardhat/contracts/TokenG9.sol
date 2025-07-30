@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 // learn more: https://docs.openzeppelin.com/contracts/4.x/erc20
 
-contract YourToken is ERC20 {
+contract TokenG9 is ERC20 {
 
     constructor() ERC20("Group9", "G9") {
         address initialTokenOwner = msg.sender;

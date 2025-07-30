@@ -3,12 +3,12 @@ import { DeployFunction } from "hardhat-deploy/types";
 // import { Contract } from "ethers";
 
 /**
- * Deploys a contract named "YourToken" using the deployer account and
+ * Deploys a contract named "TokenG9" using the deployer account and
  * constructor arguments set to the deployer address
  *
  * @param hre HardhatRuntimeEnvironment object.
  */
-const deployYourToken: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployTokenG9: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
     On localhost, the deployer account is the one that comes with Hardhat, which is already funded.
 
@@ -22,7 +22,7 @@ const deployYourToken: DeployFunction = async function (hre: HardhatRuntimeEnvir
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourToken", {
+  await deploy("TokenG9", {
     from: deployer,
     // Contract constructor arguments
     args: [],
@@ -33,11 +33,11 @@ const deployYourToken: DeployFunction = async function (hre: HardhatRuntimeEnvir
   });
 
   // Get the deployed contract
-  // const yourToken = await hre.ethers.getContract<Contract>("YourToken", deployer);
+  // const tokenG9 = await hre.ethers.getContract<Contract>("TokenG9", deployer);
 };
 
-export default deployYourToken;
+export default deployTokenG9;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.
-// e.g. yarn deploy --tags YourToken
-deployYourToken.tags = ["YourToken"];
+// e.g. yarn deploy --tags TokenG9
+deployTokenG9.tags = ["TokenG9"];

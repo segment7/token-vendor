@@ -4,32 +4,32 @@
 
 import hre from "hardhat";
 import { expect } from "chai";
-import { Vendor, YourToken } from "../typechain-types";
+import { Vendor, TokenG9 } from "../typechain-types";
 
 const { ethers } = hre;
 
 describe("🚩 Challenge 2: 🏵 Token Vendor 🤖", function () {
   const contractAddress = process.env.CONTRACT_ADDRESS;
-  let yourToken: YourToken;
-  let yourTokenAddress = "";
+  let tokenG9: TokenG9;
+  let tokenG9Address = "";
 
   let tokenContractArtifact = "";
   if (contractAddress) {
-    tokenContractArtifact = `contracts/YourTokenAutograder.sol:YourToken`;
+    tokenContractArtifact = `contracts/TokenG9Autograder.sol:TokenG9`;
   } else {
-    tokenContractArtifact = "contracts/YourToken.sol:YourToken";
+    tokenContractArtifact = "contracts/TokenG9.sol:TokenG9";
   }
 
-  it("Should deploy YourToken", async function () {
-    const YourTokenFactory = await ethers.getContractFactory(tokenContractArtifact);
+  it("Should deploy TokenG9", async function () {
+    const TokenG9Factory = await ethers.getContractFactory(tokenContractArtifact);
 
-    yourToken = (await YourTokenFactory.deploy()) as YourToken;
-    yourTokenAddress = await yourToken.getAddress();
+    tokenG9 = (await TokenG9Factory.deploy()) as TokenG9;
+    tokenG9Address = await tokenG9.getAddress();
   });
 
   describe("totalSupply()", function () {
     it("Should have a total supply of at least 1000", async function () {
-      const totalSupply = await yourToken.totalSupply();
+      const totalSupply = await tokenG9.totalSupply();
       const totalSupplyInt = parseInt(ethers.formatEther(totalSupply));
       console.log("\t", " 🧾 Total Supply:", totalSupplyInt);
       expect(totalSupplyInt).to.greaterThan(999);
@@ -48,11 +48,11 @@ describe("🚩 Challenge 2: 🏵 Token Vendor 🤖", function () {
   it("Should deploy Vendor", async function () {
     const VendorFactory = await ethers.getContractFactory(contractArtifact);
 
-    vendor = (await VendorFactory.deploy(yourTokenAddress)) as Vendor;
+    vendor = (await VendorFactory.deploy(tokenG9Address)) as Vendor;
 
     vendorAddress = await vendor.getAddress();
     console.log("Transferring 1000 tokens to the vendor...");
-    await yourToken.transfer(vendorAddress, ethers.parseEther("1000"));
+    await tokenG9.transfer(vendorAddress, ethers.parseEther("1000"));
   });
 
   describe(" 💵 buyTokens()", function () {
@@ -60,7 +60,7 @@ describe("🚩 Challenge 2: 🏵 Token Vendor 🤖", function () {
       const [owner] = await ethers.getSigners();
       console.log("\t", " 🧑 Tester Address: ", owner.address);
 
-      const startingBalance: bigint = await yourToken.balanceOf(owner.address);
+      const startingBalance: bigint = await tokenG9.balanceOf(owner.address);
       console.log("\t", " ⚖  Starting Token balance: ", ethers.formatEther(startingBalance));
 
       console.log("\t", " 💸 Buying...");
@@ -71,7 +71,7 @@ describe("🚩 Challenge 2: 🏵 Token Vendor 🤖", function () {
       const txResult = await buyTokensResult.wait();
       expect(txResult?.status).to.equal(1);
 
-      const newBalance = await yourToken.balanceOf(owner.address);
+      const newBalance = await tokenG9.balanceOf(owner.address);
       console.log("\t", " 🔎 New Token balance: ", ethers.formatEther(newBalance));
       expect(newBalance).to.equal(startingBalance + ethers.parseEther("0.1"));
     });
@@ -84,11 +84,11 @@ describe("🚩 Challenge 2: 🏵 Token Vendor 🤖", function () {
       const startingETHBalance = await ethers.provider.getBalance(owner.address);
       console.log("\t", " ⚖  Starting ETH balance: ", ethers.formatEther(startingETHBalance));
 
-      const startingBalance = await yourToken.balanceOf(owner.address);
+      const startingBalance = await tokenG9.balanceOf(owner.address);
       console.log("\t", " ⚖  Starting Token balance: ", ethers.formatEther(startingBalance));
 
       console.log("\t", " 🙄 Approving...");
-      const approveTokensResult = await yourToken.approve(vendorAddress, ethers.parseEther("0.1"));
+      const approveTokensResult = await tokenG9.approve(vendorAddress, ethers.parseEther("0.1"));
       console.log("\t", " 🏷  approveTokens Result: ", approveTokensResult.hash);
 
       console.log("\t", " ⏳ Waiting for confirmation...");
@@ -103,7 +103,7 @@ describe("🚩 Challenge 2: 🏵 Token Vendor 🤖", function () {
       const txResult = await sellTokensResult.wait();
       expect(txResult?.status).to.equal(1, "Error when expecting the transaction status to equal 1");
 
-      const newBalance = await yourToken.balanceOf(owner.address);
+      const newBalance = await tokenG9.balanceOf(owner.address);
       console.log("\t", " 🔎 New Token balance: ", ethers.formatEther(newBalance));
       expect(newBalance).to.equal(
         startingBalance - ethers.parseEther("0.1"),

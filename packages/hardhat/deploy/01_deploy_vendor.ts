@@ -23,12 +23,12 @@ const deployVendor: DeployFunction = async function (hre: HardhatRuntimeEnvironm
   // // Deploy Vendor
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
-  const yourToken = await hre.ethers.getContract<Contract>("YourToken", deployer);
-  const yourTokenAddress = await yourToken.getAddress();
+  const tokenG9 = await hre.ethers.getContract<Contract>("TokenG9", deployer);
+  const tokenG9Address = await tokenG9.getAddress();
   await deploy("Vendor", {
     from: deployer,
     // Contract constructor arguments
-    args: [yourTokenAddress],
+    args: [tokenG9Address],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -37,9 +37,9 @@ const deployVendor: DeployFunction = async function (hre: HardhatRuntimeEnvironm
   const vendor = await hre.ethers.getContract<Contract>("Vendor", deployer);
   const vendorAddress = await vendor.getAddress();
   // // Transfer tokens to Vendor from msg sender
-  await yourToken.transfer(vendorAddress, hre.ethers.parseEther("1000"));
+  await tokenG9.transfer(vendorAddress, hre.ethers.parseEther("1000"));
   // // Transfer contract ownership to your frontend address
-  await vendor.transferOwnership("0xEBB7663Fc6e172F03E4d58480a295464162D8B30");
+  await vendor.transferOwnership("0x9e5DdeDfB2B0D7357Ba67B3ac029Ed9452F0E2ad");
 };
 
 export default deployVendor;

@@ -17,23 +17,23 @@ const TokenVendor: NextPage = () => {
   const [tokensToSell, setTokensToSell] = useState<string>("");
 
   const { address } = useAccount();
-  const { data: yourTokenSymbol } = useScaffoldReadContract({
-    contractName: "YourToken",
+  const { data: tokenG9Symbol } = useScaffoldReadContract({
+    contractName: "TokenG9",
     functionName: "symbol",
   });
 
-  const { data: yourTokenBalance } = useScaffoldReadContract({
-    contractName: "YourToken",
+  const { data: tokenG9Balance } = useScaffoldReadContract({
+    contractName: "TokenG9",
     functionName: "balanceOf",
     args: [address],
   });
 
   const { data: vendorContractData } = useDeployedContractInfo({ contractName: "Vendor" });
   const { writeContractAsync: writeVendorAsync } = useScaffoldWriteContract({ contractName: "Vendor" });
-  const { writeContractAsync: writeYourTokenAsync } = useScaffoldWriteContract({ contractName: "YourToken" });
+  const { writeContractAsync: writeTokenG9Async } = useScaffoldWriteContract({ contractName: "TokenG9" });
 
   const { data: vendorTokenBalance } = useScaffoldReadContract({
-    contractName: "YourToken",
+    contractName: "TokenG9",
     functionName: "balanceOf",
     args: [vendorContractData?.address],
   });
@@ -67,8 +67,8 @@ const TokenVendor: NextPage = () => {
           <div className="text-xl">
             Your token balance:{" "}
             <div className="inline-flex items-center justify-center">
-              {parseFloat(formatEther(yourTokenBalance || 0n)).toFixed(4)}
-              <span className="font-bold ml-1">{yourTokenSymbol}</span>
+              {parseFloat(formatEther(tokenG9Balance || 0n)).toFixed(2)}
+              <span className="font-bold ml-1">{tokenG9Symbol}</span>
             </div>
           </div>
           {/* Vendor Balances */}
@@ -76,8 +76,8 @@ const TokenVendor: NextPage = () => {
           <div>
             Vendor token balance:{" "}
             <div className="inline-flex items-center justify-center">
-              {Number(formatEther(vendorTokenBalance || 0n)).toFixed(4)}
-              <span className="font-bold ml-1">{yourTokenSymbol}</span>
+              {Number(formatEther(vendorTokenBalance || 0n)).toFixed(2)}
+              <span className="font-bold ml-1">{tokenG9Symbol}</span>
             </div>
           </div>
           <div>
@@ -89,7 +89,7 @@ const TokenVendor: NextPage = () => {
         {/* Buy Tokens */}
         <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
           <div className="text-xl">Buy tokens</div>
-          <div>{tokensPerEth?.toString() || 0} tokens per ETH</div>
+          <div>token price: 0.01 ETH</div>
 
           <div className="w-full flex flex-col space-y-2">
             <IntegerInput
@@ -114,7 +114,7 @@ const TokenVendor: NextPage = () => {
           </button>
         </div> 
 
-        {!!yourTokenBalance && (
+        {!!tokenG9Balance && (
           <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
             <div className="text-xl">Transfer tokens</div>
             <div className="w-full flex flex-col space-y-2">
@@ -131,7 +131,7 @@ const TokenVendor: NextPage = () => {
               className="btn btn-secondary"
               onClick={async () => {
                 try {
-                  await writeYourTokenAsync({
+                  await writeTokenG9Async({
                     functionName: "transfer",
                     args: [toAddress, multiplyTo1e18(tokensToSend)],
                   });
@@ -146,10 +146,10 @@ const TokenVendor: NextPage = () => {
         )}
 
         {/* Sell Tokens */}
-        {!!yourTokenBalance && (
+        {!!tokenG9Balance && (
           <div className="flex flex-col items-center space-y-4 bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-8 w-full max-w-lg">
-            <div className="text-xl">Sell tokens</div>
-            <div>{tokensPerEth?.toString() || 0} tokens per ETH</div>
+            <div className="text-xl">Sell tokens to vendor</div>
+            <div>token price: 0.008 ETH</div>
 
             <div className="w-full flex flex-col space-y-2">
               <IntegerInput
@@ -166,7 +166,7 @@ const TokenVendor: NextPage = () => {
                 className={`btn ${isApproved ? "btn-disabled" : "btn-secondary"}`}
                 onClick={async () => {
                   try {
-                    await writeYourTokenAsync({
+                    await writeTokenG9Async({
                       functionName: "approve",
                       args: [vendorContractData?.address, multiplyTo1e18(tokensToSell)],
                     });
