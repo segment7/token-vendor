@@ -1,6 +1,6 @@
 # Token Vendor dApp
 
-An Ethereum-based decentralized application (dApp) that allows users to seamlessly **buy and sell ERC-20 tokens** (`TokenG9`) in exchange for ETH using a vendor smart contract and a ERC-20 contract.
+An Ethereum-based decentralized application (dApp) that allows users to seamlessly **buy and sell ERC-20 tokens** (`Token G9`) in exchange for ETH using a vendor smart contract and an ERC-20 contract.
 
 ---
 

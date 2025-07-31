@@ -73,7 +73,7 @@ export const ReownCustomConnectButton = () => {
         if (!connected) {
           return (
             <button className="btn btn-primary btn-sm" onClick={openConnectModal} type="button">
-            Wallet
+            Connect
             </button>
           );
         }

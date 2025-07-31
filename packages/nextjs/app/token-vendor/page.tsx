@@ -48,8 +48,8 @@ const TokenVendor: NextPage = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="flex flex-col items-center bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-24 w-full max-w-lg">
+      <div className="flex items-center flex-col flex-grow pt-3">
+        <div className="flex flex-col items-center bg-base-100 shadow-lg shadow-secondary border-8 border-secondary rounded-xl p-6 mt-10 w-full max-w-lg">
           <div className="flex justify-center items-center space-x-2 flex-col">
             {connectedAddress ? (
               <>
