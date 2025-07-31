@@ -1,13 +1,16 @@
 # Token Vendor dApp
 
+[![License: AGPL](https://img.shields.io/badge/License-AGPL-orange.svg)](https://opensource.org/licenses/agpl-v3)
+[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-blue.svg)](https://soliditylang.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-yellow.svg)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.17.0-green.svg)](https://nodejs.org/)
+
 An Ethereum-based decentralized application (dApp) that allows users to seamlessly **buy and sell ERC-20 tokens** (`Token G9`) in exchange for ETH using a vendor smart contract and an ERC-20 contract.
 
----
 
 ## 🌐 Live Demo
 Please visit the live demo at [group9-evm.vercel.app](https://group9-evm.vercel.app/).
 
----
 
 ## 📦 Stack
 
@@ -16,7 +19,6 @@ Please visit the live demo at [group9-evm.vercel.app](https://group9-evm.vercel.
 - **Smart Contracts**: Solidity, Hardhat, OpenZeppelin  
 - **Deployment**: Vercel (frontend), Sepolia testnet (contracts)  
 
----
 
 ## 📸 Diagrams
 
@@ -37,8 +39,6 @@ Please visit the live demo at [group9-evm.vercel.app](https://group9-evm.vercel.
 - **Sell tokens** back to the contract in exchange for ETH  
 - **Real-time balances** for ETH and tokens  
 - **Wallet integration** via Reownkit for seamless Web3 experience  
-
----
 
 ## 🧪 Local Development
 
@@ -71,24 +71,22 @@ Access at `http://localhost:3000`
 - **TokenG9.sol** – Custom ERC-20 token, initial supply: 1000 G9 tokens
 - **Vendor.sol** – Vendor contract with the following key functions:
   - `buyTokens()` (payable)
-  - `sellTokens(uint256 amount)`
+  - `sellTokens()`
   - `withdraw()` (owner only)
 
 **Events:**
-- `BuyTokens(buyer, ethAmount, tokenAmount)`
-- `SellTokens(seller, ethAmount, tokenAmount)`
+- `BuyTokens` (buyer, ethAmount, tokenAmount)
+- `SellTokens` (seller, ethAmount, tokenAmount)
 
-Built and deployed using [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2).
+## 🙏 Acknowledgments
 
----
+- [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) - Open-source Ethereum dapps toolkit
 
 ## ✍️ Author
 
 Created and customized by **Group 9**  
 Built with 💙 for the EVM Bootcamp  
 
----
+## 📄 License
 
-## License
-
-AGPL v3
+- [AGPL v3](https://opensource.org/licenses/agpl-v3)
